@@ -126,7 +126,20 @@ $(function() {
                     });
             } else {
                 self.requestData();
-                OctoPrint.connection.disconnect();
+                if (!self.isPrinting() && !self.isPaused()) {
+                    OctoPrint.connection.disconnect();
+                } else {
+                    showConfirmationDialog({
+                        title: gettext("Print in progress"),
+                        message: gettext("Disconnection attempted while printing."),
+                        question: gettext("Are you sure you want to disconnect from the printer?"),
+                        cancel: gettext("Stay Connected"),
+                        proceed: gettext("Disconnect"),
+                        onproceed:  function() {
+                            OctoPrint.connection.disconnect();
+                        }
+                    })
+                }
             }
         };
 
