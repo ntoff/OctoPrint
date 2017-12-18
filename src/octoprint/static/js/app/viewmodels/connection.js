@@ -131,8 +131,8 @@ $(function() {
                 } else {
                     showConfirmationDialog({
                         title: gettext("Print in progress"),
-                        message: gettext("Disconnection attempted while printing."),
-                        question: gettext("Are you sure you want to disconnect from the printer?"),
+                        message: gettext("<p><strong>You are about to disconnect your printer from OctoPrint</strong></p><p>Disconnecting while a print is in progress will potentially cancel your print.</p><p>Reconnecting may cause your printer to reset (depending on its controller board and general setup), which may disrupt ongoing prints, even those running from your printer's internal storage.</p>"),
+                        question: gettext("Are you sure you wish to proceed?"),
                         cancel: gettext("Stay Connected"),
                         proceed: gettext("Disconnect"),
                         onproceed:  function() {
