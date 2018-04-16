@@ -31,6 +31,7 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   manual/index.rst
    features/index.rst
    bundledplugins/index.rst
    configuration/index.rst
